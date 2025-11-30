@@ -1,0 +1,12 @@
+CREATE TABLE Users (
+	user_ID INT PRIMARY KEY AUTO_INCREMENT,
+	First_Name VARCHAR(100),
+    Last_Name VARCHAR(100),
+    Email VARCHAR(255) NOT NULL UNIQUE,
+    Password VARCHAR(255) NOT NULL,
+    Token VARCHAR(255),
+    Role ENUM('USER','ADMIN','MANAGER') DEFAULT 'USER',
+    AVATAR VARCHAR(255) DEFAULT '../uploads/avatar.jpg',
+    CHECK (email LIKE '%_@_%._%'),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
